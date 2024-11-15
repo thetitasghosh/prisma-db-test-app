@@ -3,7 +3,7 @@ import Footer from "@/components/section/Footer";
 import AppContent from "@/components/section/AppContent";
 const Home = () => {
   return (
-    <div className="w-full px-11 h-screen flex items-center flex-col justify-between">
+    <div className="flex h-screen w-full flex-col items-center justify-between px-11">
       <AppContent />
       <Footer />
     </div>

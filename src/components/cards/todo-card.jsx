@@ -1,21 +1,33 @@
 "use client";
 import React from "react";
-import { Trash2 } from "lucide-react";
-import { deleteTodo } from "@/app/actions/action";
+import { Trash2, CopyPlus } from "lucide-react";
+import { deleteTodo, duplicateTodo } from "@/app/actions/action";
 import { Button } from "../ui/button";
 const TodoCard = ({ title, text, id }) => {
   return (
-    <div className="relative flex h-16 w-full flex-col items-start justify-center gap-1 rounded-md border pl-5">
-      <h1 className="font-bold">{title}</h1>
-      <p>{text}</p>
-      <Button
-        onClick={() => deleteTodo(id)}
-        className="absolute right-2 top-3.5"
-        size={"icon"}
-        variant={"destructive"}
-      >
-        <Trash2 />
-      </Button>
+    <div className="relative flex h-16 w-full items-center justify-between gap-1 rounded-md border px-5">
+      <div>
+        <h1 className="font-bold">{title}</h1>
+        <p>{text}</p>
+      </div>
+      <div className="flex w-fit gap-2">
+        <Button
+          onClick={() => deleteTodo(id)}
+          className=""
+          size={"icon"}
+          variant={"destructive"}
+        >
+          <Trash2 />
+        </Button>
+        <Button
+          onClick={() => duplicateTodo(title, text)}
+          className=""
+          size={"icon"}
+          variant={"outline"}
+        >
+          <CopyPlus className="text-blue-800" />
+        </Button>
+      </div>
     </div>
   );
 };

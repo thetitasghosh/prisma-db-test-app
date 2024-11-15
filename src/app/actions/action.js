@@ -20,3 +20,12 @@ export async function deleteTodo(id) {
   });
   revalidatePath("/");
 }
+export async function duplicateTodo(title, text) {
+  await prisma.todo.create({
+    data: {
+      title: `${title} Copy`,
+      text: text,
+    },
+  });
+  revalidatePath("/");
+}
